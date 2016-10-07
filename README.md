@@ -1,7 +1,7 @@
 # Fault-Line-Algorithm
 An implementation of the fault line algorithm for heightmap generation in C#
 
-<h2>Overwiev</h2>
+<h2>Overview</h2>
 
 This is a variation of the mentioned algorithm in _"Game Programming Gems 2"_, by Mark DeLoura. In the book, he describes
 a method of generating fault fractals with moving points either upwards, or downwards, depending on the fault line.
