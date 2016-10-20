@@ -14,7 +14,7 @@ As mentioned above, this algorithm only affects pixels that are above the fault 
 and that is the generated heightmap will almost certainly always feature a mountain range in upper and lower part of the map.
 
 A possible solution to this shortcoming would be to start with a heightmap of medium height (i.e. every pixel would be set to a shade of grey) and
-then affect every vertex, as DeLoura proposed. This would not have a forceful impact on time complexity, since the asymptotic complexity would remain **O(n)**.
+then affect every vertex, as DeLoura proposed. This would not have a forceful impact on time complexity, since the asymptotic complexity would remain **O(n^2)**.
 
 <h2>Additional Notes</h2>
 
