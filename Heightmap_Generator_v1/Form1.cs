@@ -18,6 +18,12 @@ namespace Heightmap_Generator_v1
 
         // ----------------- ALGORITHM IMPLEMENTATIONS -----------------
 
+        // ----------------- DIAMOND-SQUARE -----------------
+        public static void Plasma()
+        {
+
+        }
+
         // ----------------- FAULT LINE -----------------
         public void FaultLine()
         {
@@ -25,8 +31,8 @@ namespace Heightmap_Generator_v1
 
             sw.Start();
 
-            Bitmap bmp = new Bitmap(pictureBox1.Image);
-            int itNum = Convert.ToInt32(textBox1.Text); // Number of iterations received from textBox1
+            Bitmap bmp = new Bitmap(pctbxHeightmap.Image);
+            int itNum = Convert.ToInt32(txtbxNumOfIterations.Text); // Number of iterations received from textBox1
 
             Random gen = new Random(); // For generating random values
 
@@ -105,9 +111,9 @@ namespace Heightmap_Generator_v1
 
             }
 
-            pictureBox1.Image = new Bitmap(bmp);
+            pctbxHeightmap.Image = new Bitmap(bmp);
 
-            pictureBox1.Refresh();
+            pctbxHeightmap.Refresh();
 
             sw.Stop();
 
@@ -140,7 +146,7 @@ namespace Heightmap_Generator_v1
         private void button1_Click(object sender, EventArgs e)
         {
 
-            switch (comboBox1.SelectedIndex)
+            switch (cbxAlgorithmSelection.SelectedIndex)
             {
                 case 0:
                     // MessageBox.Show("Fault Line Algorithm was chosen.", "Fault Line Algorithm",
@@ -172,10 +178,12 @@ namespace Heightmap_Generator_v1
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void numOfIterations_TextChanged(object sender, EventArgs e)
         {
-            string input = textBox1.Text.ToString(); // Gets a string from textBox1
+            string input = txtbxNumOfIterations.Text.ToString(); // Gets a string from TextBox
             int number;
+
+            textBox2.AppendText("Neki");
 
             bool result = Int32.TryParse(input, out number);
 
@@ -208,7 +216,7 @@ namespace Heightmap_Generator_v1
 
                 if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.Image = new Bitmap(OpenFileDialog1.FileName);
+                    pctbxHeightmap.Image = new Bitmap(OpenFileDialog1.FileName);
                 }
             }
         }
@@ -230,10 +238,10 @@ namespace Heightmap_Generator_v1
             {
                 string fileName = SaveFileDialog1.FileName;
 
-                pictureBox1.Image.Save(fileName + ".tiff");
-                pictureBox1.Image.Save(fileName + ".raw");
-                pictureBox1.Image.Save(fileName + ".jpg");
-                pictureBox1.Image.Save(fileName + ".bmp");
+                pctbxHeightmap.Image.Save(fileName + ".tiff");
+                pctbxHeightmap.Image.Save(fileName + ".raw");
+                pctbxHeightmap.Image.Save(fileName + ".jpg");
+                pctbxHeightmap.Image.Save(fileName + ".bmp");
             }
         }
     }
