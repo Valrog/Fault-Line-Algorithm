@@ -135,6 +135,32 @@ namespace Heightmap_Generator_v1
 
         }
 
+        // ----------------- Helper methods -----------------
+
+        static public void checkInput(string input)
+        {
+            int number;
+
+            bool result = Int32.TryParse(input, out number);
+
+            if (result)
+            {
+                if (number < 0)
+                {
+                    MessageBox.Show("Negative integers are not allowed.", "Error",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Error converting to integer.", "Error",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error);
+            }
+        }
+
 
         // ----------------- FORM -----------------
 
@@ -181,28 +207,15 @@ namespace Heightmap_Generator_v1
         private void numOfIterations_TextChanged(object sender, EventArgs e)
         {
             string input = txtbxNumOfIterations.Text.ToString(); // Gets a string from TextBox
-            int number;
 
-            textBox2.AppendText("Neki");
+            checkInput(input);
+        }
 
-            bool result = Int32.TryParse(input, out number);
+        private void txbxDimensions_TextChanged(object sender, EventArgs e)
+        {
+            string input = txbxDimensions.Text.ToString(); // Gets a string from TextBox
 
-            if (result)
-            {
-                if (number < 0)
-                {
-                    MessageBox.Show("Negative integers are not allowed.", "Error",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-                }
-            }
-
-            else
-            {
-                MessageBox.Show("Error converting to integer.", "Error",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-            }
+            checkInput(input);
         }
 
 
@@ -243,6 +256,11 @@ namespace Heightmap_Generator_v1
                 pctbxHeightmap.Image.Save(fileName + ".jpg");
                 pctbxHeightmap.Image.Save(fileName + ".bmp");
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

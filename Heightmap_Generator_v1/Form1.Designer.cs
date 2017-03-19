@@ -38,6 +38,8 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbxDimensions = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctbxHeightmap)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +47,7 @@
             // btnGenerate
             // 
             this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerate.Location = new System.Drawing.Point(510, 345);
+            this.btnGenerate.Location = new System.Drawing.Point(595, 452);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 0;
@@ -62,9 +64,9 @@
             "Fault Line",
             "Diamond-square",
             "Perlin Noise"});
-            this.cbxAlgorithmSelection.Location = new System.Drawing.Point(12, 347);
+            this.cbxAlgorithmSelection.Location = new System.Drawing.Point(428, 292);
             this.cbxAlgorithmSelection.Name = "cbxAlgorithmSelection";
-            this.cbxAlgorithmSelection.Size = new System.Drawing.Size(145, 21);
+            this.cbxAlgorithmSelection.Size = new System.Drawing.Size(242, 21);
             this.cbxAlgorithmSelection.TabIndex = 1;
             this.cbxAlgorithmSelection.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -72,7 +74,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 350);
+            this.label1.Location = new System.Drawing.Point(428, 326);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 2;
@@ -81,7 +83,7 @@
             // txtbxNumOfIterations
             // 
             this.txtbxNumOfIterations.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtbxNumOfIterations.Location = new System.Drawing.Point(351, 347);
+            this.txtbxNumOfIterations.Location = new System.Drawing.Point(632, 319);
             this.txtbxNumOfIterations.Name = "txtbxNumOfIterations";
             this.txtbxNumOfIterations.Size = new System.Drawing.Size(38, 20);
             this.txtbxNumOfIterations.TabIndex = 3;
@@ -94,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctbxHeightmap.Location = new System.Drawing.Point(13, 27);
             this.pctbxHeightmap.Name = "pctbxHeightmap";
-            this.pctbxHeightmap.Size = new System.Drawing.Size(324, 312);
+            this.pctbxHeightmap.Size = new System.Drawing.Size(409, 419);
             this.pctbxHeightmap.TabIndex = 4;
             this.pctbxHeightmap.TabStop = false;
             // 
@@ -104,7 +106,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(597, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(682, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,17 +135,40 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(343, 28);
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(428, 27);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(242, 259);
             this.textBox2.TabIndex = 6;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(428, 353);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Heightmap dimensions";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txbxDimensions
+            // 
+            this.txbxDimensions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbxDimensions.Location = new System.Drawing.Point(632, 346);
+            this.txbxDimensions.Name = "txbxDimensions";
+            this.txbxDimensions.Size = new System.Drawing.Size(38, 20);
+            this.txbxDimensions.TabIndex = 8;
+            this.txbxDimensions.TextChanged += new System.EventHandler(this.txbxDimensions_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 380);
+            this.ClientSize = new System.Drawing.Size(682, 487);
+            this.Controls.Add(this.txbxDimensions);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pctbxHeightmap);
             this.Controls.Add(this.txtbxNumOfIterations);
@@ -174,6 +199,8 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMapToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txbxDimensions;
     }
 }
 
