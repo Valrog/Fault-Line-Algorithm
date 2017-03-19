@@ -224,7 +224,7 @@ namespace Heightmap_Generator_v1
             using (OpenFileDialog OpenFileDialog1 = new OpenFileDialog())
             {
                 OpenFileDialog1.Title = "Open Empty Heightmap";
-                //OpenFileDialog1.Filter = "TGA Files (*.tga) | *.tga"; // Can't view TGA images in pictureBox
+                // OpenFileDialog1.Filter = "TGA Files (*.tga) | *.tga"; // Can't view TGA images in pictureBox
                 OpenFileDialog1.Filter = "BMP Files (*.bmp) | *.bmp";
 
                 if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
