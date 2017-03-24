@@ -88,7 +88,7 @@ namespace Heightmap_Generator_v1
                             yF1 = m1 * u + b1; // Calculates the yF1 (previous fault) coordinates of the point (u, v)
 
                             //if ((v >= yF1 && v <= yF) || (v <= yF1 && v >= yF)) // We change the color of the space between the current fault and the previous fault
-                            if(v >= yF)
+                            if (v >= yF)
                             {
                                 c = bmp.GetPixel(u, v);
                                 grey = c.R - h;
@@ -106,7 +106,7 @@ namespace Heightmap_Generator_v1
                 b1 = b; // Sets the current b to act as a previous b in the next iteration
 
                 //if (h > 2)
-                  //  h -= dh; // Decreases the displacement factor
+                //  h -= dh; // Decreases the displacement factor
 
 
             }
@@ -161,6 +161,13 @@ namespace Heightmap_Generator_v1
             }
         }
 
+        static public void AlgorithmSelectionMessage(string algorithm)
+        {
+            MessageBox.Show(algorithm + " was chosen.", algorithm,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+        }
+
 
         // ----------------- FORM -----------------
 
@@ -175,26 +182,23 @@ namespace Heightmap_Generator_v1
             switch (cbxAlgorithmSelection.SelectedIndex)
             {
                 case 0:
-                    // MessageBox.Show("Fault Line Algorithm was chosen.", "Fault Line Algorithm",
-                    //  MessageBoxButtons.OK,
-                    //  MessageBoxIcon.Information);
-                    FaultLine(); // Calls the method FaultLine to generate a heightmap
+                    AlgorithmSelectionMessage("Plasma algorithm");
                     break;
 
                 case 1:
-                    MessageBox.Show("Diamond-square Algorithm was chosen.", "Diamond-square Algorithm",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Information);
-                    DiamondSquare(); // Calls the method DiamondSquare to generate a heightmap
+                    AlgorithmSelectionMessage("Fault line algorithm");
+                    FaultLine(); // Calls the method FaultLine to generate a heightmap
                     break;
 
                 case 2:
-                    MessageBox.Show("Perlin noise Algorithm was chosen.", "Perlin Noise Algorithm",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Information);
-                    PerlinNoise(); // Calls the method PerlinNoise to generate a heightmap
+                    AlgorithmSelectionMessage("Diamond-square algorithm");
+                    DiamondSquare(); // Calls the method DiamondSquare to generate a heightmap
                     break;
 
+                case 3:
+                    AlgorithmSelectionMessage("Perlin noise algorithm");
+                    PerlinNoise(); // Calls the method PerlinNoise to generate a heightmap
+                    break;
             }
 
         }
