@@ -137,11 +137,10 @@ namespace Heightmap_Generator_v1
 
         // ----------------- Helper methods -----------------
 
-        static public void CheckInput(string input)
+        static public bool CheckInput(string input) // Checks if input is valid in textBoxes
         {
-            int number;
 
-            bool result = Int32.TryParse(input, out number);
+            bool result = Int32.TryParse(input, out int number);
 
             if (result)
             {
@@ -150,6 +149,8 @@ namespace Heightmap_Generator_v1
                     MessageBox.Show("Negative integers are not allowed.", "Error",
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
+
+                    return false;
                 }
             }
 
@@ -158,7 +159,11 @@ namespace Heightmap_Generator_v1
                 MessageBox.Show("Error converting to integer.", "Error",
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error);
+
+                return false;
             }
+
+            return true;
         }
 
         static public void AlgorithmSelectionMessage(string algorithm)
@@ -178,6 +183,10 @@ namespace Heightmap_Generator_v1
 
         private void BtnGenerate_Click(object sender, EventArgs e)
         {
+
+            if (!CheckInput(txbxDimensions.Text.ToString()) || !CheckInput(txtbxNumOfIterations.Text.ToString()))
+                return;
+
 
             switch (cbxAlgorithmSelection.SelectedIndex)
             {
@@ -210,16 +219,12 @@ namespace Heightmap_Generator_v1
 
         private void NumOfIterations_TextChanged(object sender, EventArgs e)
         {
-            string input = txtbxNumOfIterations.Text.ToString(); // Gets a string from TextBox
 
-            CheckInput(input);
         }
 
         private void TxbxDimensions_TextChanged(object sender, EventArgs e)
         {
-            string input = txbxDimensions.Text.ToString(); // Gets a string from TextBox
 
-            CheckInput(input);
         }
 
 
