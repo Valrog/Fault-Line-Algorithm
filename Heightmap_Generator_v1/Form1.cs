@@ -137,7 +137,7 @@ namespace Heightmap_Generator_v1
 
         // ----------------- Helper methods -----------------
 
-        static public void checkInput(string input)
+        static public void CheckInput(string input)
         {
             int number;
 
@@ -169,7 +169,7 @@ namespace Heightmap_Generator_v1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
             switch (cbxAlgorithmSelection.SelectedIndex)
@@ -199,27 +199,27 @@ namespace Heightmap_Generator_v1
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void numOfIterations_TextChanged(object sender, EventArgs e)
+        private void NumOfIterations_TextChanged(object sender, EventArgs e)
         {
             string input = txtbxNumOfIterations.Text.ToString(); // Gets a string from TextBox
 
-            checkInput(input);
+            CheckInput(input);
         }
 
-        private void txbxDimensions_TextChanged(object sender, EventArgs e)
+        private void TxbxDimensions_TextChanged(object sender, EventArgs e)
         {
             string input = txbxDimensions.Text.ToString(); // Gets a string from TextBox
 
-            checkInput(input);
+            CheckInput(input);
         }
 
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog OpenFileDialog1 = new OpenFileDialog())
             {
@@ -234,7 +234,7 @@ namespace Heightmap_Generator_v1
             }
         }
 
-        private void saveMapToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
 
@@ -258,7 +258,7 @@ namespace Heightmap_Generator_v1
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }

@@ -53,7 +53,7 @@
             this.btnGenerate.TabIndex = 0;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
-            this.btnGenerate.Click += new System.EventHandler(this.button1_Click);
+            this.btnGenerate.Click += new System.EventHandler(this.Button1_Click);
             // 
             // cbxAlgorithmSelection
             // 
@@ -68,7 +68,7 @@
             this.cbxAlgorithmSelection.Name = "cbxAlgorithmSelection";
             this.cbxAlgorithmSelection.Size = new System.Drawing.Size(242, 21);
             this.cbxAlgorithmSelection.TabIndex = 1;
-            this.cbxAlgorithmSelection.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbxAlgorithmSelection.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -87,7 +87,7 @@
             this.txtbxNumOfIterations.Name = "txtbxNumOfIterations";
             this.txtbxNumOfIterations.Size = new System.Drawing.Size(38, 20);
             this.txtbxNumOfIterations.TabIndex = 3;
-            this.txtbxNumOfIterations.TextChanged += new System.EventHandler(this.numOfIterations_TextChanged);
+            this.txtbxNumOfIterations.TextChanged += new System.EventHandler(this.NumOfIterations_TextChanged);
             // 
             // pctbxHeightmap
             // 
@@ -124,14 +124,14 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.openToolStripMenuItem.Text = "Open Empty Map";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveMapToolStripMenuItem
             // 
             this.saveMapToolStripMenuItem.Name = "saveMapToolStripMenuItem";
             this.saveMapToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.saveMapToolStripMenuItem.Text = "Save Map";
-            this.saveMapToolStripMenuItem.Click += new System.EventHandler(this.saveMapToolStripMenuItem_Click);
+            this.saveMapToolStripMenuItem.Click += new System.EventHandler(this.SaveMapToolStripMenuItem_Click);
             // 
             // textBox2
             // 
@@ -151,7 +151,7 @@
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Heightmap dimensions";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // txbxDimensions
             // 
@@ -160,7 +160,7 @@
             this.txbxDimensions.Name = "txbxDimensions";
             this.txbxDimensions.Size = new System.Drawing.Size(38, 20);
             this.txbxDimensions.TabIndex = 8;
-            this.txbxDimensions.TextChanged += new System.EventHandler(this.txbxDimensions_TextChanged);
+            this.txbxDimensions.TextChanged += new System.EventHandler(this.TxbxDimensions_TextChanged);
             // 
             // Form1
             // 
