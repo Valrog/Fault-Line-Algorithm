@@ -30,7 +30,7 @@
         {
             this.btnGenerate = new System.Windows.Forms.Button();
             this.cbxAlgorithmSelection = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNumIterations = new System.Windows.Forms.Label();
             this.txtbxNumOfIterations = new System.Windows.Forms.TextBox();
             this.pctbxHeightmap = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,8 +38,8 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbxDimensions = new System.Windows.Forms.TextBox();
+            this.cbxMapResolution = new System.Windows.Forms.ComboBox();
+            this.lblMapResolution = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctbxHeightmap)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,20 +70,20 @@
             this.cbxAlgorithmSelection.TabIndex = 1;
             this.cbxAlgorithmSelection.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
-            // label1
+            // lblNumIterations
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(428, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Number of iterations";
+            this.lblNumIterations.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblNumIterations.AutoSize = true;
+            this.lblNumIterations.Location = new System.Drawing.Point(428, 330);
+            this.lblNumIterations.Name = "lblNumIterations";
+            this.lblNumIterations.Size = new System.Drawing.Size(101, 13);
+            this.lblNumIterations.TabIndex = 2;
+            this.lblNumIterations.Text = "Number of iterations";
             // 
             // txtbxNumOfIterations
             // 
             this.txtbxNumOfIterations.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtbxNumOfIterations.Location = new System.Drawing.Point(632, 319);
+            this.txtbxNumOfIterations.Location = new System.Drawing.Point(632, 323);
             this.txtbxNumOfIterations.Name = "txtbxNumOfIterations";
             this.txtbxNumOfIterations.Size = new System.Drawing.Size(38, 20);
             this.txtbxNumOfIterations.TabIndex = 3;
@@ -121,6 +121,7 @@
             // 
             // openToolStripMenuItem
             // 
+            this.openToolStripMenuItem.Enabled = false;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.openToolStripMenuItem.Text = "Open Empty Map";
@@ -142,37 +143,43 @@
             this.textBox2.Size = new System.Drawing.Size(242, 259);
             this.textBox2.TabIndex = 6;
             // 
-            // label2
+            // cbxMapResolution
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(428, 353);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Heightmap dimensions";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
+            this.cbxMapResolution.AllowDrop = true;
+            this.cbxMapResolution.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbxMapResolution.FormattingEnabled = true;
+            this.cbxMapResolution.Items.AddRange(new object[] {
+            "256x256",
+            "512x512",
+            "1024x1024",
+            "2048x2048"});
+            this.cbxMapResolution.Location = new System.Drawing.Point(592, 349);
+            this.cbxMapResolution.Name = "cbxMapResolution";
+            this.cbxMapResolution.Size = new System.Drawing.Size(78, 21);
+            this.cbxMapResolution.TabIndex = 8;
+            this.cbxMapResolution.SelectedIndexChanged += new System.EventHandler(this.CbxMapResolution_SelectedIndexChanged);
             // 
-            // txbxDimensions
+            // lblMapResolution
             // 
-            this.txbxDimensions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbxDimensions.Location = new System.Drawing.Point(632, 346);
-            this.txbxDimensions.Name = "txbxDimensions";
-            this.txbxDimensions.Size = new System.Drawing.Size(38, 20);
-            this.txbxDimensions.TabIndex = 8;
-            this.txbxDimensions.TextChanged += new System.EventHandler(this.TxbxDimensions_TextChanged);
+            this.lblMapResolution.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblMapResolution.AutoSize = true;
+            this.lblMapResolution.Location = new System.Drawing.Point(428, 357);
+            this.lblMapResolution.Name = "lblMapResolution";
+            this.lblMapResolution.Size = new System.Drawing.Size(106, 13);
+            this.lblMapResolution.TabIndex = 9;
+            this.lblMapResolution.Text = "Heightmap resolution";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 487);
-            this.Controls.Add(this.txbxDimensions);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblMapResolution);
+            this.Controls.Add(this.cbxMapResolution);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pctbxHeightmap);
             this.Controls.Add(this.txtbxNumOfIterations);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNumIterations);
             this.Controls.Add(this.cbxAlgorithmSelection);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.menuStrip1);
@@ -191,7 +198,7 @@
 
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.ComboBox cbxAlgorithmSelection;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNumIterations;
         private System.Windows.Forms.TextBox txtbxNumOfIterations;
         private System.Windows.Forms.PictureBox pctbxHeightmap;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -199,8 +206,8 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMapToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbxDimensions;
+        private System.Windows.Forms.ComboBox cbxMapResolution;
+        private System.Windows.Forms.Label lblMapResolution;
     }
 }
 

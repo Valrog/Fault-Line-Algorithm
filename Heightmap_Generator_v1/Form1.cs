@@ -31,10 +31,10 @@ namespace Heightmap_Generator_v1
 
             sw.Start();
 
-            Bitmap bmp = new Bitmap(pctbxHeightmap.Image);
+            Bitmap heightMap = new Bitmap(pctbxHeightmap.Image);
             int itNum = Convert.ToInt32(txtbxNumOfIterations.Text); // Number of iterations received from textBox1
 
-            Random gen = new Random(); // For generating random values
+            Random randomValue = new Random(); // For generating random values
 
             // It is sufficient to use int rather than double
 
@@ -59,18 +59,18 @@ namespace Heightmap_Generator_v1
 
                 while (x1 == x2) // In this case, a vertical line would be the result
                 {
-                    x1 = gen.Next(0, bmp.Width); // Generates the x coordinate of the first point
-                    x2 = gen.Next(0, bmp.Width); // Generates the y coordinate of the second point
+                    x1 = randomValue.Next(0, heightMap.Width); // Generates the x coordinate of the first point
+                    x2 = randomValue.Next(0, heightMap.Width); // Generates the y coordinate of the second point
                 }
 
-                y1 = gen.Next(0, bmp.Height); // Generates the y coordinate of the first point
-                y2 = gen.Next(0, bmp.Height); // Generates the y coordinate of the second point
+                y1 = randomValue.Next(0, heightMap.Height); // Generates the y coordinate of the first point
+                y2 = randomValue.Next(0, heightMap.Height); // Generates the y coordinate of the second point
 
                 // Slope-intercept form of a line y = mx + b
 
                 m = (double)(y2 - y1) / (x2 - x1); // It calculates the slope m
                 b = (double)y1 - m * x1; // It calculates the y-intercept b
-                // Having m and b is enough to calculate the points on the fault line for comparison with the rest
+                                         // Having m and b is enough to calculate the points on the fault line for comparison with the rest
 
                 /*textBox2.AppendText("x1 = " + x1.ToString("F4") + " y1 = " + y1.ToString("F4")
                     + " x2 =  " + x2.ToString("F4") + " y2 =  " + y2.ToString("F4") + "\n"
@@ -78,25 +78,21 @@ namespace Heightmap_Generator_v1
                  */
 
 
-                if (j != 0) // We skip the first iteration, because we have no fault as a predecessor
+                for (int v = 0; v < heightMap.Height; v++) // Goes through the y coordinate of the bitmap
                 {
-                    for (int v = 0; v < bmp.Height; v++) // Goes through the y coordinate of the bitmap
+                    for (int u = 0; u < heightMap.Width; u++) // Goes through the x coordinate of the bitmap
                     {
-                        for (int u = 0; u < bmp.Width; u++) // Goes through the x coordinate of the bitmap
+                        yF = m * u + b; // Calculates the yF (fault) coordinate of the current point (u, v)
+                        yF1 = m1 * u + b1; // Calculates the yF1 (previous fault) coordinates of the point (u, v)
+
+                        if (v >= yF)
                         {
-                            yF = m * u + b; // Calculates the yF (fault) coordinate of the current point (u, v)
-                            yF1 = m1 * u + b1; // Calculates the yF1 (previous fault) coordinates of the point (u, v)
+                            c = heightMap.GetPixel(u, v);
+                            grey = c.R - h;
 
-                            //if ((v >= yF1 && v <= yF) || (v <= yF1 && v >= yF)) // We change the color of the space between the current fault and the previous fault
-                            if (v >= yF)
+                            if (grey > 0)
                             {
-                                c = bmp.GetPixel(u, v);
-                                grey = c.R - h;
-
-                                if (grey > 0)
-                                {
-                                    bmp.SetPixel(u, v, Color.FromArgb(grey, grey, grey));
-                                }
+                                heightMap.SetPixel(u, v, Color.FromArgb(grey, grey, grey));
                             }
                         }
                     }
@@ -108,10 +104,9 @@ namespace Heightmap_Generator_v1
                 //if (h > 2)
                 //  h -= dh; // Decreases the displacement factor
 
-
             }
 
-            pctbxHeightmap.Image = new Bitmap(bmp);
+            pctbxHeightmap.Image = new Bitmap(heightMap);
 
             pctbxHeightmap.Refresh();
 
@@ -119,7 +114,6 @@ namespace Heightmap_Generator_v1
 
             MessageBox.Show("Time Elapsed: " + sw.Elapsed.ToString(), "Title",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
 
         }
 
@@ -184,28 +178,63 @@ namespace Heightmap_Generator_v1
         private void BtnGenerate_Click(object sender, EventArgs e)
         {
 
-            if (!CheckInput(txbxDimensions.Text.ToString()) || !CheckInput(txtbxNumOfIterations.Text.ToString()))
-                return;
+            int width = 0, height = 0;
 
+            switch (cbxMapResolution.SelectedIndex) // Defines the resolution of the Heightmap
+            {
+                case 0:
+                    // MessageBox.Show("256x256");
+                    pctbxHeightmap.Image = new Bitmap(256, 256);
+                    width = 256;
+                    height = 256;
+                    break;
+
+                case 1:
+                    // MessageBox.Show("512x512");
+                    pctbxHeightmap.Image = new Bitmap(512, 512);
+                    width = 512;
+                    height = 512;
+                    break;
+
+                case 2:
+                    // MessageBox.Show("1024x1024");
+                    pctbxHeightmap.Image = new Bitmap(1024, 1024);
+                    width = 1024;
+                    height = 1024;
+                    break;
+
+                case 3:
+                    // MessageBox.Show("2048x2048");
+                    pctbxHeightmap.Image = new Bitmap(2048, 2048);
+                    width = 2048;
+                    height = 2048;
+                    break;
+            }
+
+            using (Graphics blankMap = Graphics.FromImage(pctbxHeightmap.Image))
+            {
+                Rectangle mapSize = new Rectangle(0, 0, width, height);
+                blankMap.FillRectangle(Brushes.White, mapSize);
+            }
 
             switch (cbxAlgorithmSelection.SelectedIndex)
             {
                 case 0:
-                    AlgorithmSelectionMessage("Plasma algorithm");
+                    // AlgorithmSelectionMessage("Plasma algorithm");
                     break;
 
                 case 1:
-                    AlgorithmSelectionMessage("Fault line algorithm");
+                    // AlgorithmSelectionMessage("Fault line algorithm");
                     FaultLine(); // Calls the method FaultLine to generate a heightmap
                     break;
 
                 case 2:
-                    AlgorithmSelectionMessage("Diamond-square algorithm");
+                    // AlgorithmSelectionMessage("Diamond-square algorithm");
                     DiamondSquare(); // Calls the method DiamondSquare to generate a heightmap
                     break;
 
                 case 3:
-                    AlgorithmSelectionMessage("Perlin noise algorithm");
+                    // AlgorithmSelectionMessage("Perlin noise algorithm");
                     PerlinNoise(); // Calls the method PerlinNoise to generate a heightmap
                     break;
             }
@@ -245,14 +274,15 @@ namespace Heightmap_Generator_v1
 
         private void SaveMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
+            SaveFileDialog SaveFileDialog1 = new SaveFileDialog()
+            {
+                InitialDirectory = @"C:\",
+                Title = "Save Heightmap",
 
-            SaveFileDialog1.InitialDirectory = @"C:\";
-            SaveFileDialog1.Title = "Save Heightmap";
+                //SaveFileDialog1.Filter = "TIFF Files (*.tiff) | *.tiff";
 
-            //SaveFileDialog1.Filter = "TIFF Files (*.tiff) | *.tiff";
-
-            SaveFileDialog1.CheckPathExists = true;
+                CheckPathExists = true
+            };
 
             //SaveFileDialog1.ShowDialog();
 
@@ -267,7 +297,7 @@ namespace Heightmap_Generator_v1
             }
         }
 
-        private void Label2_Click(object sender, EventArgs e)
+        private void CbxMapResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
