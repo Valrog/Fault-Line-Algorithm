@@ -129,45 +129,6 @@ namespace Heightmap_Generator_v1
 
         }
 
-        // ----------------- Helper methods -----------------
-
-        static public bool CheckInput(string input) // Checks if input is valid in textBoxes
-        {
-
-            bool result = Int32.TryParse(input, out int number);
-
-            if (result)
-            {
-                if (number < 0)
-                {
-                    MessageBox.Show("Negative integers are not allowed.", "Error",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-
-                    return false;
-                }
-            }
-
-            else
-            {
-                MessageBox.Show("Error converting to integer.", "Error",
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Error);
-
-                return false;
-            }
-
-            return true;
-        }
-
-        static public void AlgorithmSelectionMessage(string algorithm)
-        {
-            MessageBox.Show(algorithm + " was chosen.", algorithm,
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-        }
-
-
         // ----------------- FORM -----------------
 
         public Form1()
@@ -177,6 +138,11 @@ namespace Heightmap_Generator_v1
 
         private void BtnGenerate_Click(object sender, EventArgs e)
         {
+            if (CheckInput(txtbxNumOfIterations.Text) == false) // Checks if input is correct
+            {
+                return;
+            }
+
 
             int width = 0, height = 0;
 
@@ -238,22 +204,6 @@ namespace Heightmap_Generator_v1
                     PerlinNoise(); // Calls the method PerlinNoise to generate a heightmap
                     break;
             }
-
-        }
-
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NumOfIterations_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxbxDimensions_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -297,9 +247,41 @@ namespace Heightmap_Generator_v1
             }
         }
 
-        private void CbxMapResolution_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        // ----------------- Helper methods -----------------
 
+        static public bool CheckInput(string input) // Checks if input is valid in textBoxes
+        {
+            bool result = Int32.TryParse(input, out int number);
+
+            if (result)
+            {
+                if (number < 0)
+                {
+                    MessageBox.Show("Negative integers are not allowed.", "Error",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error);
+
+                    return false;
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Error converting to integer.", "Error",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            return true;
+        }
+
+        static public void AlgorithmSelectionMessage(string algorithm)
+        {
+            MessageBox.Show(algorithm + " was chosen.", algorithm,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
         }
     }
 }

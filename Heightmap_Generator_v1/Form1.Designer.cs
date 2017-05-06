@@ -37,7 +37,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtbxTestOutput = new System.Windows.Forms.TextBox();
             this.cbxMapResolution = new System.Windows.Forms.ComboBox();
             this.lblMapResolution = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctbxHeightmap)).BeginInit();
@@ -68,7 +68,6 @@
             this.cbxAlgorithmSelection.Name = "cbxAlgorithmSelection";
             this.cbxAlgorithmSelection.Size = new System.Drawing.Size(242, 21);
             this.cbxAlgorithmSelection.TabIndex = 1;
-            this.cbxAlgorithmSelection.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // lblNumIterations
             // 
@@ -87,7 +86,6 @@
             this.txtbxNumOfIterations.Name = "txtbxNumOfIterations";
             this.txtbxNumOfIterations.Size = new System.Drawing.Size(38, 20);
             this.txtbxNumOfIterations.TabIndex = 3;
-            this.txtbxNumOfIterations.TextChanged += new System.EventHandler(this.NumOfIterations_TextChanged);
             // 
             // pctbxHeightmap
             // 
@@ -134,14 +132,14 @@
             this.saveMapToolStripMenuItem.Text = "Save Map";
             this.saveMapToolStripMenuItem.Click += new System.EventHandler(this.SaveMapToolStripMenuItem_Click);
             // 
-            // textBox2
+            // txtbxTestOutput
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(428, 27);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 259);
-            this.textBox2.TabIndex = 6;
+            this.txtbxTestOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTestOutput.Location = new System.Drawing.Point(428, 27);
+            this.txtbxTestOutput.Multiline = true;
+            this.txtbxTestOutput.Name = "txtbxTestOutput";
+            this.txtbxTestOutput.Size = new System.Drawing.Size(242, 259);
+            this.txtbxTestOutput.TabIndex = 6;
             // 
             // cbxMapResolution
             // 
@@ -157,7 +155,6 @@
             this.cbxMapResolution.Name = "cbxMapResolution";
             this.cbxMapResolution.Size = new System.Drawing.Size(78, 21);
             this.cbxMapResolution.TabIndex = 8;
-            this.cbxMapResolution.SelectedIndexChanged += new System.EventHandler(this.CbxMapResolution_SelectedIndexChanged);
             // 
             // lblMapResolution
             // 
@@ -176,7 +173,7 @@
             this.ClientSize = new System.Drawing.Size(682, 487);
             this.Controls.Add(this.lblMapResolution);
             this.Controls.Add(this.cbxMapResolution);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtbxTestOutput);
             this.Controls.Add(this.pctbxHeightmap);
             this.Controls.Add(this.txtbxNumOfIterations);
             this.Controls.Add(this.lblNumIterations);
@@ -205,7 +202,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMapToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtbxTestOutput;
         private System.Windows.Forms.ComboBox cbxMapResolution;
         private System.Windows.Forms.Label lblMapResolution;
     }
