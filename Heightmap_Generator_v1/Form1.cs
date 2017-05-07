@@ -44,7 +44,7 @@ namespace Heightmap_Generator_v1
             double yF; // Value for y coordinate on a fault line for given x
             double yF1; // Value for y coordinate on a fault for given x, based on the previously generated fault
 
-            int h = 1; // Height displacement factor
+            int h = 4; // Height displacement factor
             //int dh = 4;
 
             Color c; // Object Color, for getting RGB data out of a pixel
@@ -143,7 +143,6 @@ namespace Heightmap_Generator_v1
                 return;
             }
 
-
             int width = 0, height = 0;
 
             switch (cbxMapResolution.SelectedIndex) // Defines the resolution of the Heightmap
@@ -205,7 +204,6 @@ namespace Heightmap_Generator_v1
                     break;
             }
         }
-
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
