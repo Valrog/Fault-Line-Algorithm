@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Diagnostics; // For Stopwatch
-
+using System.Drawing.Imaging;
 
 namespace Heightmap_Generator_v1
 {
@@ -238,10 +238,10 @@ namespace Heightmap_Generator_v1
             {
                 string fileName = SaveFileDialog1.FileName;
 
-                pctbxHeightmap.Image.Save(fileName + ".tiff");
-                pctbxHeightmap.Image.Save(fileName + ".raw");
-                pctbxHeightmap.Image.Save(fileName + ".jpg");
-                pctbxHeightmap.Image.Save(fileName + ".bmp");
+                pctbxHeightmap.Image.Save(fileName + ".tiff", ImageFormat.Tiff);
+                // pctbxHeightmap.Image.Save(fileName + ".raw");
+                pctbxHeightmap.Image.Save(fileName + ".jpg", ImageFormat.Jpeg);
+                pctbxHeightmap.Image.Save(fileName + ".bmp", ImageFormat.Bmp);
             }
         }
 
