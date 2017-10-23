@@ -14,7 +14,7 @@ This is a variation of the mentioned algorithm in _"Game Programming Gems 2"_, b
 a method of generating fault fractals with moving points either upwards, or downwards, depending on the fault line.
 
 This implementation differs from the algorithm in the book in that it manipulates only the vertices (pixels) above the generated fault line in a heightmap.
-This is because we start with an empty (white) heightmap, and white color indicates the highest point. This method has a significant shortcoming of generating somewhat predictable terrain.
+This is because we start with an empty (white) heightmap, and white color indicates the highest point. This method has a significant shortcoming of generating a somewhat predictable terrain.
 
 <h4>Flaws</h4>
 As mentioned above, this algorithm only affects pixels that are above the fault line. This approach affects the end terrain in a significant way,
