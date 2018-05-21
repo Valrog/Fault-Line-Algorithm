@@ -1,17 +1,9 @@
-# Heightmap Generation Tool
+# Fault Line Algorithm
 
-This tool implements several algorithms for generating heightmaps.
+<h4>Summary</h4>
 
-<h2>Overview</h2>
-
-The purpose of this tool is to provide an easy and quick way to generate heightmaps that can be used in a 3D package software for the purpose of generating realistic terrain.
-
-<h2>Algorithms</h2>
-
-<h4>Fault line algorithm</h4>
-
-This is a variation of the mentioned algorithm in _"Game Programming Gems 2"_, by Mark DeLoura. In the book, he describes
-a method of generating fault fractals with moving points either upwards, or downwards, depending on the fault line.
+This is an implemention of the mentioned algorithm in _"Game Programming Gems 2"_, by Mark DeLoura. In the book, he describes
+a method of generating fault fractals with moving vertices on a mesh either upwards or downwards, depending on the fault line. This algorithm instead works on a Two-dimensional heightmap.
 
 This implementation differs from the algorithm in the book in that it manipulates only the vertices (pixels) above the generated fault line in a heightmap.
 This is because we start with an empty (white) heightmap, and white color indicates the highest point. This method has a significant shortcoming of generating a somewhat predictable terrain.
@@ -25,4 +17,4 @@ then affect every vertex, as DeLoura proposed. This would not have a forceful im
 
 <h2>Additional Notes</h2>
 
-This project was first meant to be a plug-in for _Autodesk Maya_, but was shortly converted to a general heightmap generation tool.
+This project was first meant to be a plug-in for _Autodesk Maya_, but was shortly converted to a heightmap generation tool, since it makes more sense to generate heightmaps than manipulate an actual mesh.
