@@ -79,7 +79,7 @@ namespace Fault_Line_Algorithm
             double yF1; // Value for y coordinate on a fault for given x, based on the previously generated fault
 
             int h = 4; // Height displacement factor
-            
+
 
             Color c; // Color object for storing RGB data of a pixel
             int grey; // Value for calculating grey color
@@ -90,13 +90,14 @@ namespace Fault_Line_Algorithm
 
                 // It is less complex to simply not allow vertical lines to be generated
 
-                while (x1 == x2) // In this case, a vertical line would be the result
+                // In this case, a vertical line would be the result
+                do
                 {
                     x1 = randomGenerator.Next(0, heightMap.Width); // Generates the x coordinate of the first point
                     x2 = randomGenerator.Next(0, heightMap.Width); // Generates the y coordinate of the second point
-                }
+                } while (x1 == x2);
 
-                y1 = randomGenerator.Next(0, heightMap.Height); // Generates the y coordinate of the first point
+                    y1 = randomGenerator.Next(0, heightMap.Height); // Generates the y coordinate of the first point
                 y2 = randomGenerator.Next(0, heightMap.Height); // Generates the y coordinate of the second point
 
                 // Slope-intercept form of a line y = mx + b
